@@ -6,7 +6,7 @@
 /*   By: quenalla <quenalla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:57:27 by quenalla          #+#    #+#             */
-/*   Updated: 2024/05/23 12:43:13 by quenalla         ###   ########.fr       */
+/*   Updated: 2024/05/28 07:37:10 by quenalla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,5 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *) s);
 		s++;
 	}
-	if (c == '\0')
-		return (NULL);
-	return (0);
+	return (NULL);
 }

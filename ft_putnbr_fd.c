@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quenalla <quenalla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 16:08:41 by quenalla          #+#    #+#             */
-/*   Updated: 2024/05/28 13:20:59 by quenalla         ###   ########.fr       */
+/*   Created: 2024/05/28 10:52:48 by quenalla          #+#    #+#             */
+/*   Updated: 2024/05/28 11:15:26 by quenalla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	long int	compteur;
+	int			neg;
 
-	str = (char *)s;
-	while (0 < n)
+	compteur = 1;
+	neg = 1;
+	if (n == 0)
 	{
-		n--;
-		*str = c;
-		str++;
+		return (ft_putchar_fd("0", fd));
 	}
-	return (s);
+	if (n < 0)
+	{
+		n = -n;
+		neg = -neg;
+	}
+	while (compteur <= n)
+		compteur = compteur * 10;
+	while (compteur > 1)
+	{
+		compteur = compteur / 10;
+		ft_putchar_fd(n / compteur, fd);
+		n = n % compteur;
+	}
 }

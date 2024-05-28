@@ -1,43 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quenalla <quenalla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 09:38:43 by quenalla          #+#    #+#             */
-/*   Updated: 2024/05/28 08:07:58 by quenalla         ###   ########.fr       */
+/*   Created: 2024/05/27 14:21:57 by qacjl             #+#    #+#             */
+/*   Updated: 2024/05/28 15:08:54 by quenalla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_strlen(char *str)
+int	ft_setting(char c, char const *set)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *s)
-{
-	int		i;
-	char	*str;
-	char	*s1;
-
-	s1 = (char *)s;
-	i = 0;
-	str = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (str == NULL)
-		return (0);
-	while (s1[i])
+	while (set[i])
 	{
-		str[i] = s1[i];
+		if (set[i] == c)
+			return (1);
 		i++;
 	}
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*str;
+	int		i;
+	int		start;
+	int		end;
+
+	i = 0;
+	start = 0;
+	end = 0;
+	while (s1[end])
+		end++;
+	while (s1[start] && (ft_setting(s1[start], set) == 1))
+		start++;
+	while (end > start && (ft_setting(s1[end - 1], set) == 1))
+		end--;
+	str = malloc(sizeof(*s1) * (end - start + 1));
+	if (str == NULL)
+		return (NULL);
+	while (start < end)
+		str[i++] = s1[start++];
 	str[i] = '\0';
 	return (str);
 }

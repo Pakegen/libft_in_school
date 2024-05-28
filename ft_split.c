@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qacjl <qacjl@student.42.fr>                +#+  +:+       +#+        */
+/*   By: quenalla <quenalla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 10:59:44 by quenalla          #+#    #+#             */
-/*   Updated: 2024/05/22 17:10:54 by qacjl            ###   ########.fr       */
+/*   Created: 2024/05/28 11:30:34 by quenalla          #+#    #+#             */
+/*   Updated: 2024/05/28 13:21:07 by quenalla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-size_t	ft_strlen(const char *s)
+char	**ft_split(char const *s)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
 }
